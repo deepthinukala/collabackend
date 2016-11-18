@@ -1,0 +1,15 @@
+com\niit\collab\dao\ForumImpl.class
+com\niit\collab\controller\RCBlog.class
+com\niit\collab\dao\UserDAO.class
+com\niit\collab\model\Blog.class
+com\niit\collab\model\Forum.class
+com\niit\collab\dao\ForumDAO.class
+com\niit\collab\model\User.class
+com\niit\collab\service\ForumService.class
+com\niit\collab\dao\UserImpl.class
+com\niit\collab\controller\RCForum.class
+com\niit\collab\service\ForumServiceImpl.class
+com\niit\collab\service\BlogService.class
+com\niit\collab\dao\BlogDAO.class
+com\niit\collab\dao\BlogImpl.class
+com\niit\collab\service\BlogServiceImpl.class
