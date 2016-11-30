@@ -1,4 +1,4 @@
-package com.niit.collab.controller;
+/*package com.niit.collab.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -26,7 +26,7 @@ public class RCForum {
 		forumService.createForum(forum,session);
 	}
 	
-	@GetMapping("/getAllForums")
+	@GetMapping("/Forums")
 	public String getAllForums()
 	{
 		return forumService.getAllForums();
@@ -51,3 +51,4 @@ public class RCForum {
 	 	}	
 
 }
+*/

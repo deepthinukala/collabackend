@@ -11,17 +11,17 @@ public class Blog {
 
 	@Id
 	@GeneratedValue
-	private int bid;
+	private int blogid;
 	private int userid;
 	private String blogName;
 	private String blogDesc;
 	private String blogtime;
 
-	public int getBid() {
-		return bid;
+	public int getBlogid() {
+		return blogid;
 	}
-	public void setBid(int bid) {
-		this.bid = bid;
+	public void setBlogid(int blogid) {
+		this.blogid = blogid;
 	}
 	public int getUserid() {
 		return userid;

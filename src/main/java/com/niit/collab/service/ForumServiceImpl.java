@@ -1,4 +1,4 @@
-package com.niit.collab.service;
+/*package com.niit.collab.service;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -16,18 +16,18 @@ public class ForumServiceImpl implements ForumService {
 	@Autowired
 	private ForumDAO forumDAO;
 	
-	/*Create New Forum Service*/
+	Create New Forum Service
 	public void createForum(Forum forum,HttpSession session) 
 	{	
-		/*Saving userid from session and time to forum object*/
-		/*forum.setB_userid((int)session.getAttribute("userid"));*/
+		Saving userid from session and time to forum object
+		forum.setB_userid((int)session.getAttribute("userid"));
 		forum.setForumtime(new java.util.Date().toString());
 		
-		/*Saving forum in database*/
+		Saving forum in database
 		forumDAO.saveOrUpdate(forum);
 	}
 
-	/*Retrive All Forum List and convert to JSON and saving in String */
+	Retrive All Forum List and convert to JSON and saving in String 
 	public String  getAllForums() 
 	{
 		List<Forum> list=forumDAO.getForums();
@@ -36,23 +36,24 @@ public class ForumServiceImpl implements ForumService {
 		return data;
 	}
 
-	/*Delete single forum based on forum id*/
+	Delete single forum based on forum id
 	public void deleteForum(int forumid) 
 	{
 		Forum forum= forumDAO.getForum(forumid);
 		forumDAO.deleteForum(forum);
 	}
 
-	/*Edit individual forum based on forum id*/
+	Edit individual forum based on forum id
 	public Forum editForum(int forumid)
 	{
 		 return forumDAO.getForum(forumid);
 	}
 	
-	/*Retrive Single Forum data and convert to JSON and saving in String */
+	Retrive Single Forum data and convert to JSON and saving in String 
 	public List<Forum> getSingleForum(int forumid) 
 	{
 		return forumDAO.getIndividualForum(forumid);
 	}
 
 }
+*/

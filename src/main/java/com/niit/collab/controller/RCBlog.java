@@ -1,4 +1,4 @@
-package com.niit.collab.controller;
+/*package com.niit.collab.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -41,3 +41,4 @@ public class RCBlog {
 		return new ResponseEntity<Blog>(blog, HttpStatus.OK);
 	}
 }
+*/

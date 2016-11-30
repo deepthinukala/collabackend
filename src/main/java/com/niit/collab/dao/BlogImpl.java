@@ -47,7 +47,7 @@ public class BlogImpl implements BlogDAO{
 	@Transactional
 	public Blog getBlog(int blogid) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Blog.class);
-		c.add(Restrictions.eq("bid", blogid));
+		c.add(Restrictions.eq("blogid", blogid));
 		Blog blog=(Blog) c.uniqueResult();
 		return blog;
 	}
@@ -56,7 +56,7 @@ public class BlogImpl implements BlogDAO{
 	@Transactional
 	public List<Blog> getIndividualForum(int blogid) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Blog.class);
-		c.add(Restrictions.eq("bid", blogid));
+		c.add(Restrictions.eq("blogid", blogid));
 		List<Blog> list=c.list();
 		return list;
 	}

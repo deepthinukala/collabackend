@@ -18,4 +18,5 @@ public Blog getBlog(int blogid);
 
 public List<Blog> getIndividualForum(int blogid);
 
+
 }
