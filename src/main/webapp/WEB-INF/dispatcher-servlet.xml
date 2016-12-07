@@ -15,6 +15,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	<context:component-scan base-package="com.niit.collab" />
 	<mvc:annotation-driven />
 
+	<context:property-placeholder location="classpath:log4j.properties" />
 	<!-- <websocket:message-broker
 		application-destination-prefix="/app">
 		<websocket:stomp-endpoint path="/chat">

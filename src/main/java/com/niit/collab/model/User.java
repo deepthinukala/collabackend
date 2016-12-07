@@ -24,6 +24,13 @@ public class User {
 	private String address;
 	private Date dob;
 	private String gender;
+	private char status;
+	public char getStatus() {
+		return status;
+	}
+	public void setStatus(char status) {
+		this.status = status;
+	}
 	public int getId() {
 		return id;
 	}
