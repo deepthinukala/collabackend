@@ -10,46 +10,57 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collab.model.Blog;
 
-@Repository
+@Repository(value="blogDAO")
 public class BlogImpl implements BlogDAO{
 	
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	/*public BlogImpl (SessionFactory sessionFactory){
+	public BlogImpl(SessionFactory sessionFactory) {
 		this.sessionFactory=sessionFactory;
 	}
-	*/
-	/*Used for creating or updating Blog*/
-	@Transactional
-	public void saveorUpdate(Blog blog) {
-		sessionFactory.getCurrentSession().saveOrUpdate(blog);
+@Transactional
+public boolean saveorUpdate(Blog blog) {
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(blog);
+			System.out.println("save");
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
-	/*Retrieves all Blogs*/
-	@SuppressWarnings("deprecation")
+	@Transactional
+	public boolean deleteBlog(Blog blog) {
+		try {
+			sessionFactory.getCurrentSession().delete(blog);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	@SuppressWarnings({ "deprecation", "unchecked" })
 	@Transactional
 	public List<Blog> getBlogs() {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Blog.class);
-		@SuppressWarnings("unchecked")
 		List<Blog> list=c.list();
 		return list;
 	}
-
-	/*Delete single Blog object*/
-	@Transactional
-	public void deleteBlog(Blog blog) {
-		sessionFactory.getCurrentSession().delete(blog);
-	}
-
-	/*Fetch single blog object based on blogid*/
-	@SuppressWarnings("deprecation")
 	@Transactional
 	public Blog getBlog(int blogid) {
-		Criteria c=sessionFactory.getCurrentSession().createCriteria(Blog.class);
-		c.add(Restrictions.eq("blogid", blogid));
-		Blog blog=(Blog) c.uniqueResult();
-		return blog;
+		String hql = "from Blog where blogid= "+ "'"+ blogid+"'" ;
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<Blog>list= query.list();
+		
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
+			return list.get(0);
+		}
 	}
 
 	@SuppressWarnings({ "deprecation", "unchecked" })
@@ -60,6 +71,9 @@ public class BlogImpl implements BlogDAO{
 		List<Blog> list=c.list();
 		return list;
 	}
+	
+	
+	
 
 }
 

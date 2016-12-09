@@ -6,11 +6,11 @@ import com.niit.collab.model.Blog;
 
 public interface BlogDAO {
 
-public void saveorUpdate(Blog blog);
+public boolean saveorUpdate(Blog blog);
 public List<Blog> getBlogs();
 
 /*Delete single Blog object*/
-public void deleteBlog(Blog blog);
+public boolean deleteBlog(Blog blog);
 
 /*Fetch single blog object based on blogid*/
 public Blog getBlog(int blogid);
