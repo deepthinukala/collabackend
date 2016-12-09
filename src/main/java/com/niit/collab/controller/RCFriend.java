@@ -64,11 +64,11 @@ public class RCFriend {
 		Friend friend=friendDAO.newrequest(fid, uid);
 		friend.setStatus('a');
 		friendDAO.saveOrUpdate(friend);
-		/*Friend friend1=new Friend();
+		Friend friend1=new Friend();
 		friend1.setUserid(uid);
 		friend1.setFriendid(fid);
 		friend1.setStatus('a');
-		friendDAO.saveOrUpdate(friend1);*/
+		friendDAO.saveOrUpdate(friend1);
 		return new ResponseEntity<Friend>(friend,HttpStatus.OK);
 	}
 	@PostMapping(value="/rejectrequest/{fid}")
