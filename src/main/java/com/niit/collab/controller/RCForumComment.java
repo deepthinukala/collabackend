@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,5 +40,9 @@ public class RCForumComment {
 		List<ForumComment> comments =forumCommentDAO.list(fid);
 		return new ResponseEntity<List<ForumComment>>(comments,HttpStatus.OK);
 	}
+	/*@DeleteMapping(value="/deleteforumcomment/{fid}")
+	public ResponseEntity<ForumComment> forumcomment(ForumComment forumcomment,@PathVariable("forumcommentid") int forumcommentid ){
+		ForumComment forumcomment1 = forumcommentDAO.get
+	}*/
 
 }

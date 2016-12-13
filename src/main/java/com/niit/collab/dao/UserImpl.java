@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collab.model.User;
 
-
+@SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
 @Repository("value=userDAO")
 public class UserImpl implements UserDAO {
 	@Autowired
@@ -68,6 +68,7 @@ public class UserImpl implements UserDAO {
 			return list.get(0);
 		}
 	}
+	@Transactional
 	public List<User> getuser(int id) {
 		String hql = "from User where id= "+ "'"+ id+"'" ;
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
@@ -84,7 +85,7 @@ public class UserImpl implements UserDAO {
 	
 	}		
 	
-	@SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
+	
 	@Transactional
 	public User authuser(String username, String password) {
 		String hql="from User where username= "+"'"+username+"'"+"and password= "+"'"+password+"'";
