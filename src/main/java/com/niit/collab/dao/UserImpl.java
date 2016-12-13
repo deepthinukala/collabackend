@@ -85,7 +85,6 @@ public class UserImpl implements UserDAO {
 	
 	}		
 	
-	
 	@Transactional
 	public User authuser(String username, String password) {
 		String hql="from User where username= "+"'"+username+"'"+"and password= "+"'"+password+"'";
@@ -100,6 +99,7 @@ public class UserImpl implements UserDAO {
 			return list.get(0);
 		}
 	}
+	
 	@Transactional
 	public User logout(int id) {
 		String hql = "from User where id= "+ "'"+ id+"'" ;
@@ -115,6 +115,45 @@ public class UserImpl implements UserDAO {
 			return list.get(0);
 		}
 	}
+	
+	/*@Transactional
+	public User oneuser(int id) {
+		String hql = "from User where id= "+ "'"+ id+"'" ;
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<User>list= query.list();
+		
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
+			return list.get(0);
+		}
+	}*/
+	@Transactional
+	public User profileof(String username) {
+		String hql="from User where username='"+username+"'";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<User>list= query.list();
+		
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
+			return list.get(0);
+		}
+	}
+	@Transactional
+	public List<User> nonfriends(int id) {
+		String hql = "from User where id !='"+id+"'";
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<User> list= query.list();
+		return list;
+	}
+
 	
 }
 	

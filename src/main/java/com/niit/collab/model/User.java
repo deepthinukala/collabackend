@@ -25,14 +25,14 @@ public class User {
 	private Date dob;
 	private String gender;
 	private char status;
-	/*private byte[] image;
+	private byte[] image;
 	
 	public byte[] getImage() {
 		return image;
 	}
 	public void setImage(byte[] image) {
 		this.image = image;
-	}*/
+	}
 	public char getStatus() {
 		return status;
 	}
