@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +44,7 @@ public class UserImpl implements UserDAO {
 			return false;
 		}
 	}
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	
 	@Transactional
 	public List<User> list() {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(User.class);

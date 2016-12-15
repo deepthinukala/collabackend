@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collab.dao.ForumCommentDAO;
 import com.niit.collab.model.ForumComment;
+import com.niit.collab.model.User;
 
 @RestController
 public class RCForumComment {
@@ -32,17 +33,18 @@ public class RCForumComment {
 		forumcomment.setCommenttime(new Date());
 		forumCommentDAO.saveOrUpdate(forumcomment);
 		return new ResponseEntity<ForumComment>(forumcomment,HttpStatus.OK);
-		
-	}
+		}
 	
 	@GetMapping(value="/getforumcomment/{fid}")
 	public ResponseEntity<List<ForumComment>> getcomment(@PathVariable("fid") int fid){
 		List<ForumComment> comments =forumCommentDAO.list(fid);
 		return new ResponseEntity<List<ForumComment>>(comments,HttpStatus.OK);
 	}
-	/*@DeleteMapping(value="/deleteforumcomment/{fid}")
-	public ResponseEntity<ForumComment> forumcomment(ForumComment forumcomment,@PathVariable("forumcommentid") int forumcommentid ){
-		ForumComment forumcomment1 = forumcommentDAO.get
-	}*/
+	@DeleteMapping(value="/deleteforumcomment/{id}")
+	public ResponseEntity<ForumComment> forumcomment(ForumComment forumcomment,@PathVariable("id") int id ){
+		ForumComment forumcomment1 = forumCommentDAO.get(id);
+		forumCommentDAO.delete(forumcomment);
+		return new ResponseEntity<ForumComment>(forumcomment,HttpStatus.OK);
+	}
 
 }

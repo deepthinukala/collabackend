@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.collab.model.ForumComment;
+import com.niit.collab.model.User;
 
 @Repository(value="forumCommentDAO")
 public class ForumCommentImpl implements ForumCommentDAO  {
@@ -51,4 +53,23 @@ public class ForumCommentImpl implements ForumCommentDAO  {
 		List<ForumComment> list=c.list();
 		return list;
 	}
+
+	@Transactional
+	public ForumComment get(int id) {
+		String hql = "from ForumComment where id= "+ "'"+ id+"'" ;
+		Query query=sessionFactory.getCurrentSession().createQuery(hql);
+		List<ForumComment>list= query.list();
+		
+		if(list==null)
+		{
+			return null;
+		}
+		else
+		{
+			return list.get(0);
+		}
+	}
+
+
 }
+
