@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.collab.dao.*;
 import com.niit.collab.model.Blog;
+import com.niit.collab.model.Forum;
 
 @RestController
 public class BlogController {
@@ -41,6 +42,11 @@ public class BlogController {
 	public ResponseEntity<Blog> deleteblog(Blog blog,@PathVariable("blogid") int blogid){
 		Blog blog1=blogDAO.getBlog(blogid);
 		blogDAO.deleteBlog(blog1);
+		return new ResponseEntity<Blog>(blog,HttpStatus.OK);
+	}
+	@GetMapping(value="/individualblog/{blogid}")
+	public ResponseEntity<Blog> individualblog(@PathVariable("blogid") int blogid){
+		Blog blog=blogDAO.getBlog(blogid);
 		return new ResponseEntity<Blog>(blog,HttpStatus.OK);
 	}
 

@@ -3,6 +3,8 @@ package com.niit.collab.controller;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,9 +26,11 @@ public class RCJob {
 
 
 	@PostMapping(value="/createjob")
-	public ResponseEntity<Job> addjob(@RequestBody Job job){
+	public ResponseEntity<Job> addjob(@RequestBody Job job,HttpSession session){
 		System.out.println("hello");
+		int uid=(Integer) session.getAttribute("uid");
 		job.setDoc(new Date());
+		job.setUserid(uid);
 		jobDAO.saveOrUpdate(job);
 		return new ResponseEntity<Job>(job,HttpStatus.OK);
 		
