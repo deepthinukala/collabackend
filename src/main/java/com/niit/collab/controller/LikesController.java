@@ -1,4 +1,4 @@
-package com.niit.collab.controller;
+/*package com.niit.collab.controller;
 
 import java.util.List;
 
@@ -46,10 +46,11 @@ public class LikesController {
 	@GetMapping(value="/getlikes/{blogid}")
 	public ResponseEntity<Likes> likes(@PathVariable("blogid") int blogid){
 		 log.info("get like start============================================================================");
-		/*List<Likes> likes =likesDAO.list(bid);*/
+		List<Likes> likes =likesDAO.list(bid);
 		 likesDAO.likeget(blogid);
 		return new ResponseEntity<Likes>(HttpStatus.OK);
 	}
 
 
 }
+*/

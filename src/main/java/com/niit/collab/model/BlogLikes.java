@@ -1,4 +1,4 @@
-/*package com.niit.collab.model;
+package com.niit.collab.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,4 +45,3 @@ public class BlogLikes {
 	
 
 }
-*/

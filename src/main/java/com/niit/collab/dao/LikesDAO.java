@@ -1,4 +1,4 @@
-package com.niit.collab.dao;
+/*package com.niit.collab.dao;
 
 import java.util.List;
 
@@ -13,5 +13,6 @@ public interface LikesDAO {
 	public  Long likeget(int blogid);
 
 	
-	/*public List<Likes> list(int bid);*/
+	public List<Likes> list(int bid);
 }
+*/

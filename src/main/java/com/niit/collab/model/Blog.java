@@ -21,7 +21,14 @@ public class Blog {
 	private String blogName;
 	private String blogDesc;
 	private Date blogtime;
+	private Integer bloglike;
 
+	public Integer getBloglike() {
+		return bloglike;
+	}
+	public void setBloglike(Integer bloglike) {
+		this.bloglike = bloglike;
+	}
 	public int getBlogid() {
 		return blogid;
 	}

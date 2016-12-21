@@ -1,4 +1,4 @@
-package com.niit.collab.dao;
+/*package com.niit.collab.dao;
 
 import java.util.Iterator;
 import java.util.List;
@@ -55,13 +55,13 @@ public class LikesImpl implements LikesDAO {
 	}
 	@Transactional
 	public Long likeget(int blogid) {
-		/*Criteria c=sessionFactory.getCurrentSession().createCriteria(Likes.class);
+		Criteria c=sessionFactory.getCurrentSession().createCriteria(Likes.class);
 		c.add(Restrictions.eq("blogid", bid));
 		List<Likes> list=c.list();
-		return list;*/
+		return list;
 		long row = 0;
 		
-		/*String hql =  " select count(*)from LIKES where blogid="+blogid;*/
+		String hql =  " select count(*)from LIKES where blogid="+blogid;
 		String hql = "select count(*) from Likes where blogid= "+ "'"+ blogid+"'" ;
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		for(Iterator it=query.iterate();it.hasNext();)
@@ -127,17 +127,18 @@ public class LikesImpl implements LikesDAO {
 	
 	
 	
-	/*public List<Likes> list(int bid) {
+	public List<Likes> list(int bid) {
 		Criteria c=sessionFactory.getCurrentSession().createCriteria(Likes.class);
 		c.add(Restrictions.eq("blogid", bid));
 		List<Likes> list=c.list();
 		return list;
 	}
 
-	*/
+	
 
 	}
 	
 	
 
 
+*/
